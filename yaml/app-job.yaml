@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: app-job
+spec:
+  template:
+    metadata:
+      name: app-job
+    spec:
+      containers:
+        - name: job-container
+          image: ubuntu
+          command: ["<command>"]
+      restartPolicy: Never

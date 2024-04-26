@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: app-livenessprobe
+spec:
+  containers:
+  - name: app-livenessprobe
+    image: custom-image
+    livenessProbe:
+      httpGet:
+        path: /health
+        port: 8080
+      initialDelaySeconds: 7
+      periodSeconds: 10

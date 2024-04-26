@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-readinessprobe
+spec:
+  containers:
+  - name: app-readinessprobe
+    image: test:latest
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 8080
+      initialDelaySeconds: 7
+      periodSeconds: 5

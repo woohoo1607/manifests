@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-volumemounts
+spec:
+  containers:
+  - image: custom-image
+    name: app-volumeMounts
+    volumeMounts:
+      - name: app-config
+        mountPath: /etc/my-app/config
+      - name: app-data
+        mountPath: /var/my-app/data
+  volumes:
+    - name: app-config
+      configMap:
+        name: my-app-config
+    - name: app-data
+      persistentVolumeClaim:
+        claimName: my-app-data-claim
